@@ -11,21 +11,18 @@ canvas.width = screen.width;
 canvas.height = screen.height;
 
 function createPlasmaGenerator() {
-    let noise = 0.00025;
+    const noise = 0.00025;
 
     function hslToRgb(hue, saturation, lightness) {
         lightness /= 100;
-
-        const chroma = saturation * Math.min(lightness, 1 - lightness);
-
-        const calculateColor = n => {
+        const a = (saturation * Math.min(lightness, 1 - lightness)) / 100;
+        const f = n => {
             const k = (n + hue / 30) % 12;
             const color =
-                lightness - chroma * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                lightness - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
             return Math.round(Math.min(255, Math.max(0, 255 * color)));
         };
-
-        return [calculateColor(0), calculateColor(8), calculateColor(4)];
+        return [f(0), f(8), f(4)];
     }
 
     function calcPlasma(
