@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catmull-Rom Интерполяция</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catmull-Rom Интерполяция</h1>
+    <canvas id="graphCanvas" width="800" height="400"></canvas>
+    <br>
+    <button onclick="drawHarmonicOscillations()">Гармонические колебания</button>
+    <button onclick="drawCatmullRom()">Кривая Catmull-Rom</button>
+    <button onclick="drawPolynomialCatmullRom()">Catmull-Rom на основе полинома</button>
+    <br><br>
+    <h2>Координаты опорных точек</h2>
+    <table id="pointsTable">
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+        </tr>
+    </table>
+
+    <script src="main.js"></script>
+</body>
+</html>
